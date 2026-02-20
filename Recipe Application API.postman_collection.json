@@ -1,0 +1,216 @@
+{
+  "info": {
+    "_postman_id": "6b12bd19-aae1-434b-9683-61ecab6d160c",
+    "name": "Recipe Application API",
+    "description": "Postman collection for Recipe & Ingredient APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5338122"
+  },
+  "item": [
+    {
+      "name": "Create Ingredient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Potato\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ingredient",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ingredient"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Ingredient By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ingredient/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ingredient",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Ingredients (Pagination)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ingredient/page/0/size/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ingredient",
+            "page",
+            "0",
+            "size",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Ingredient",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/ingredient?id=1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "ingredient"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Recipe",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Veg Potato Curry\",\n  \"type\": \"VEGETARIAN\",\n  \"numberOfServings\": 4,\n  \"ingredientIds\": [1],\n  \"instructions\": \"Chop potatoes and onion, cook and serve\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipe",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipe"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Recipes (Veg + Potato)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipe/search?vegetarian=true&includeIngredient=Potato",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipe",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "vegetarian",
+              "value": "true"
+            },
+            {
+              "key": "includeIngredient",
+              "value": "Potato"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Recipes (Exclude Salmon + Oven)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/recipe/search",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "recipe",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "excludeIngredient",
+              "value": "Salmon",
+              "disabled": true
+            },
+            {
+              "key": "instruction",
+              "value": "oven",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

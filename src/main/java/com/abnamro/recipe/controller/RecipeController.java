@@ -123,22 +123,4 @@ public class RecipeController {
 		return ResponseEntity.ok(result);
 	}
 	
-	/*@Operation(summary = "Search recipes by given parameters")
-
-	@ApiResponses({
-
-			@ApiResponse(responseCode = "200", description = "Successful request"),
-
-			@ApiResponse(responseCode = "404", description = "Different error messages related to criteria and recipe") })
-
-	@PostMapping("/search")
-	public ResponseEntity<List<RecipeResponse>> searchRecipe(@RequestParam(name = "page", defaultValue = "0") int page,
-
-			@RequestParam(name = "size", defaultValue = "10") int size,
-
-			@Valid @RequestBody @Parameter(description = "Properties of the search") RecipeSearchRequest recipeSearchRequest) {
-		logger.info("Searching the recipe by given criteria");
-		List<RecipeResponse> response = recipeService.findBySearchCriteria(recipeSearchRequest, page, size);
-		return ResponseEntity.ok(response);
-	}*/
 }

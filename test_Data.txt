@@ -1,0 +1,77 @@
+POST /api/v1/ingredient
+Potato  -> 1
+Tomato  -> 2
+Onion   -> 3
+Salmon  -> 4
+Cheese  -> 5
+
+POST /api/v1/recipe
+Recipe Test Data (5 Recipes)
+Recipe–1 (Vegetarian, 4 servings, Potato)
+{
+  "name": "Veg Potato Curry",
+  "type": "VEGETARIAN",
+  "numberOfServings": 4,
+  "ingredientIds": [1, 2, 3],
+  "instructions": "Chop potatoes and onion, cook on stove and serve hot"
+}
+Covers:
+Vegetarian
+Ingredient include (Potato)
+
+Recipe–2 (Vegetarian, Oven instruction)
+{
+  "name": "Cheese Baked Pasta",
+  "type": "VEGETARIAN",
+  "numberOfServings": 2,
+  "ingredientIds": [2, 5],
+  "instructions": "Boil pasta, add cheese and bake in oven for 15 minutes"
+}
+Covers:
+Text search → oven
+
+Recipe–3 (Non-Veg, Salmon)
+{
+  "name": "Grilled Salmon",
+  "type": "NON_VEGETARIAN",
+  "numberOfServings": 3,
+  "ingredientIds": [4],
+  "instructions": "Marinate salmon and grill on pan"
+}
+Covers:
+Non-vegetarian
+Ingredient exclude tests
+
+Recipe–4 (Vegetarian, 4 servings)
+{
+  "name": "Simple Veg Pasta",
+  "type": "VEGETARIAN",
+  "numberOfServings": 4,
+  "ingredientIds": [2, 3, 5],
+  "instructions": "Boil pasta, add vegetables and stir fry"
+}
+Covers:
+Serving count filter
+
+Recipe–5 (Vegetarian, Potato + Oven)
+{
+  "name": "Oven Baked Potatoes",
+  "type": "VEGETARIAN",
+  "numberOfServings": 5,
+  "ingredientIds": [1, 5],
+  "instructions": "Slice potatoes, add cheese and bake in oven"
+}
+Covers:
+Include Potato
+Text search → oven
+
+Example Search Queries (Using This Data)
+All Vegetarian Recipes
+GET /api/v1/recipe/search?vegetarian=true
+
+Serve 4 Persons + Potato
+GET /api/v1/recipe/search?servings=4&includeIngredient=Potato
+
+Without Salmon + Instruction contains "oven"
+GET /api/v1/recipe/search?excludeIngredient=Salmon&instruction=oven
+

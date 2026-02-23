@@ -89,8 +89,7 @@ public class RecipeService {
 	}
 
 	public List<RecipeSearchResponse> SearchByCriteria(RecipeSearchReq request, Pageable pageable) {
-		return recipeRepository.findAll(RecipeSpecification.build(request), pageable).getContent() // ✅ extract List
-																									// from Page
+		return recipeRepository.findAll(RecipeSpecification.build(request), pageable).getContent()																									
 				.stream().map(recipe -> {
 					RecipeSearchResponse r = new RecipeSearchResponse();
 					r.id = recipe.getId();

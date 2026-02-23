@@ -15,7 +15,7 @@ The project demonstrates production-ready Java practices using Spring Boot, REST
    o Include or exclude specific ingredients  
    o Text search in instructions
 - **REST API**: Fully documented using Swagger UI.
-- **Database Support**: H2 for development, MariaDB for production.
+- **Database Support**: H2 for development, MySQL for production.
 - **Testing**: Unit tests with JUnit & Mockito, integration tests using Spring Boot Test.
 - **Logging**: SLF4J logging for monitoring and debugging.
 - **Production-Ready**: Uses best practices, design patterns (Factory, Singleton, MVC, DTO), and error handling.
@@ -38,7 +38,6 @@ The Recipe Management Service is built using a layered architecture:
 - **Service Layer**: Business logic, filtering, and validation.
 - **Repository Layer**: Database access using Spring Data JPA.
 - **Entity/DTO Layer**: Represents database entities and data transfer objects.
-- **Mapper Layer**: MapStruct for converting between entities and DTOs.
 - **Security Layer**: API key validation and endpoint security using Spring Security.
 - **Testing Layer**: Unit and integration tests for ensuring reliability.
 
@@ -48,8 +47,10 @@ The Recipe Management Service is built using a layered architecture:
 |------------|---------|
 | ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white) **Spring Boot** | Simplifies REST API development with auto-configuration. |
 | ![Spring Web](https://img.shields.io/badge/Spring_Web-6DB33F?style=for-the-badge&logo=spring&logoColor=white) **Spring Web** | Handles REST endpoints. |
-| ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white) **Spring Data JPA / Hibernate** | Provides database persistence and Object-Relational Mapping (ORM). |
-| ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) / ![H2](https://img.shields.io/badge/H2-007396?style=for-the-badge&logo=h2database&logoColor=white) **MariaDB / H2** | Persistent storage: MariaDB for production, H2 for dev/test. |
+| ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white) **Spring Data JPA / Hibernate** | Provides database persistence and Object-Relational Mapping (ORM). | | 
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) / 
+![H2](https://img.shields.io/badge/H2-007396?style=for-the-badge&logo=h2database&logoColor=white) 
+**MySQL / H2** | Persistent storage: MySQL for production, H2 for dev/test. |
 | ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=spring&logoColor=white) **Spring Security** | API key validation and authentication for secure endpoints. |
 | ![JUnit](https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logo=JUnit5&logoColor=white) & ![Mockito](https://img.shields.io/badge/Mockito-FF0000?style=for-the-badge&logo=Mockito&logoColor=white) **JUnit & Mockito** | Unit testing framework and mocking support. |
 | ![Spring Boot Test](https://img.shields.io/badge/Spring_Boot_Test-6DB33F?style=for-the-badge&logo=spring&logoColor=white) **Spring Boot Test** | Integration testing with in-memory database support. |
